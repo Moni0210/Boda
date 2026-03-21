@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valeria & Jorge</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Great+Vibes&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: #f7f2f1;
+  color: #444;
+  text-align: center;
+}
+
+/* PORTADA SOLO IMAGEN */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://raw.githubusercontent.com/Moni0210/Boda/main/fondo_menos_opaco.png') no-repeat center center;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background: url('https://raw.githubusercontent.com/Moni0210/Boda/main/Vale%26Jorge.png') no-repeat center center;
+    background-size: cover;
+  }
+}
+
+.hero h1 {
+  font-size: 3.5em;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1.3em;
+  margin-top: 10px;
+}
+
+.frase {
+  margin-top: 20px;
+  font-size: 1.1em;
+}
+
+/* BOTÓN */
+button {
+  background: transparent;
+  border: 1px solid #bfa46f;
+  border-radius: 30px;
+  color: #bfa46f;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #bfa46f;
+  color: white;
+}
+
+/* SECCIÓN FECHA */
+.fecha-section {
+  background: #f7f2f1;
+  padding: 20px 20px;
+}
+
+/* SAVE THE DATE */
+.save-date {
+  letter-spacing: 4px;
+  font-size: 0.8em;
+  color: #999;
+}
+
+/* FECHA ESTILIZADA */
+.fecha-estilizada {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin: 50px 0;
+}
+
+/* Contenedor horizontal de la fecha */
+.fecha-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Cuadro solo para SÁBADO y 2026 */
+.cuadro-texto {
+  border-top: 2px solid #bfa46f;
+  border-bottom: 2px solid #bfa46f;
+  padding: 8px 15px;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #999;
+  text-transform: uppercase;
+}
+
+/* Día sobresaliente (contador visual) */
+.dia-numero {
+  font-size: 2.5em;
+  margin: 0 10px;
+  color: #bfa46f;
+  font-weight: bold;
+}
+
+/* MAYO y hora más pequeños, sin cuadro */
+.mes-texto,
+.hora-texto {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+/* Frase estilizada */
+.frase-estilizada {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2em;
+  color: #bfa46f;
+  margin: 25px 0;
+  line-height: 1.4;
+}
+
+/* CONTADOR CÍRCULOS */
+.countdown-circulos {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.tiempo {
+  text-align: center;
+}
+
+.circulo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #bfa46f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+  color: #bfa46f;
+  margin-bottom: 8px;
+}
+
+.tiempo span {
+  font-size: 0.7em;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+/* SECCIONES */
+.section {
+  padding: 60px 20px;
+}
+
+/* FORMULARIO */
+form {
+  max-width: 400px;
+  margin: auto;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+/* ANIMACIÓN */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  padding: 30px;
+}
+
+/* COLUMNAS CEREMONIA Y RECEPCIÓN */
+.evento-columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px; /* margen entre columnas */
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.evento {
+  flex: 1 1 120px; /* flexible para móviles */
+  max-width: 200px;
+  text-align: center;
+}
+
+/* TITULOS */
+.titulo-evento {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 1.8em;
+  color: #999;
+  margin-bottom: 30px;
+}
+
+/* ICONOS EN CÍRCULO (sin relleno) */
+.icono-circulo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #bfa46f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  color: #bfa46f;
+  margin: 15px auto; 
+}
+
+/* SEPARADOR */
+.separador {
+  width: 2px;
+  background-color: #bfa46f;
+  height: auto;
+  margin: 0 10px; 
+}
+
+/* TEXTO Y BOTÓN */
+.evento p {
+  font-size: 0.9em; /* más pequeño para móviles */
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.boton-ubicacion {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: transparent;
+  color: #a88648;
+  text-decoration: none;
+  border: 1px solid #a88648; /* 👈 le da estilo elegante */
+  border-radius: 30px; /* 👈 más moderno y suave */
+  font-size: 0.85em;
+  letter-spacing: 1px; /* 👈 más aire */
+  transition: all 0.3s ease;
+  margin-top: 10px;
+ 
+}
+
+.boton-ubicacion:hover {
+  background-color: #a88648;
+  color: #fff; /* 👈 importante para contraste */
+}
+
+
+/* FRASE ROMÁNTICA DE LA SECCIÓN */
+.frase-evento {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1em;
+  color: #bfa46f;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.4;
+}
+.section {
+    padding: 10px 20px;
+}
+
+/* MEDIA QUERIES PARA MÓVIL */
+@media (max-width: 480px) {
+  .evento-columns {
+    gap: 15px;
+  }
+  .evento {
+    flex: 1 1 140px;
+  }
+  .separador {
+    height: 100px; /* ajustar según iconos */
+  }
+}
+/* Contenedor vertical centrado */
+.radio-vertical-centro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+  align-items: center; 
+  margin: 30px 0;
+}
+
+/* Label con radio y texto */
+.radio-vertical-centro label {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  color: #666; /* texto gris */
+  cursor: pointer;
+  font-size: 1em;
+  position: relative;
+}
+
+/* Ocultar el radio original */
+.radio-vertical-centro input[type="radio"] {
+  display: none;
+}
+
+/* Círculo personalizado */
+.radio-vertical-centro .radio-custom {
+  width: 16px;  /* tamaño del círculo externo */
+  height: 16px;
+  border: 2px solid #bfa46f; /* borde dorado */
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
+}
+
+/* Círculo interno al marcar */
+.radio-vertical-centro input[type="radio"]:checked + .radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px; /* relleno dorado */
+  height: 10px;
+  background-color: #bfa46f;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+  padding: 8px 0;
+  margin: 15px 0;
+  border: none;
+  border-bottom: 2px solid #bfa46f;
+  background: transparent;
+  font-family: 'Playfair Display', serif;
+  font-size: 1em;
+  color: #444;
+  outline: none;
+  text-align: center; /* 👈 TODO centrado */
+}
+
+/* Placeholder también centrado */
+form input::placeholder,
+form textarea::placeholder {
+  color: #aaa;
+  text-align: center;
+  opacity: 1;
+}
+
+/* Textarea */
+form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.player-min {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 320px;
+  margin: 20px auto;
+  font-family: 'Playfair Display', serif;
+}
+
+/* BOTÓN */
+#play {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 0PX;
+}
+
+/* TIEMPO */
+#current, #duration {
+  font-size: 0.8em;
+  color: #666;
+}
+
+/* BARRA */
+.bar {
+  flex: 1;
+  height: 3px;
+  background: #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* PROGRESO */
+#progress {
+  height: 100%;
+  width: 0%;
+  background: #666; /* gris exacto */
+  border-radius: 10px;
+}
+
+/* BOTÓN */
+.btn-regalo {
+  background: transparent;
+  border: none;
+  padding: 12px 25px;
+  color: #a88648;
+  border: 1px solid #a88648;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+/* FONDO OSCURO */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+/* CONTENIDO */
+.modal-contenido {
+  background: #eae4dc;
+  margin: 10% auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+/* BOTÓN CERRAR */
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #8b5e3c;
+}
+
+.nombres-boda {
+  font-family: 'Allura', cursive;
+  font-size: 3em;
+  text-align: center;
+  
+  background: linear-gradient(
+    45deg,
+    #bfa46f,
+    #e6d3a3,
+    #bfa46f
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin: 20px 0;
+}
+/* CONTENEDOR */
+.carousel-fade {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f7f2f1;
+}
+
+/* SLIDES */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* IMÁGENES */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🔥 todas iguales */
+  border-radius: 20px;
+}
+
+/* ZOOM SUAVE */
+.slide.active img {
+  animation: zoom 6s ease-in-out;
+}
+
+@keyframes zoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* BOTONES */
+.carousel-fade button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(191,164,111,0.7);
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.carousel-fade button:hover {
+  background: #bfa46f;
+}
+
+/* DOTS */
+.dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 5px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #bfa46f;
+}
+
+/* 📱 MÓVIL */
+@media (max-width: 480px) {
+  .carousel-fade {
+    height: 280px;
+  }
+}
+
+/* 💻 ESCRITORIO (GRID 3x2) */
+@media (min-width: 768px) {
+
+  .carousel-fade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    height: auto;
+    max-width: 900px;
+    background: transparent;
+  }
+
+  .slide {
+    position: relative;
+    opacity: 1 !important;
+    height: 250px;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  /* ocultar controles */
+  .prev, .next, .dots {
+    display: none;
+  }
+
+  /* ✨ efecto elegante */
+  .slide img:hover {
+    transform: scale(1.05);
+    transition: 0.4s;
+  }
+}
+
+.footer-boda {
+  background-color: #fbf5f4; /* más oscuro que tu fondo */
+  margin: 40px 20px; /* margen exterior */
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 12px; /* opcional: se ve más fino */
+}
+
+/* Nombres */
+.nombres {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  color: #bfa46f; /* gris muy claro */
+  margin: 0;
+}
+
+/* Fecha */
+.fecha {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+/* Frase */
+.frase {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: #666;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+/* Detalle final */
+.detalle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA -->
+<div class="hero">
+
+</div>
+<div class="player-min">
+
+  <button id="play">▶</button>
+
+  <span id="current">0:00</span>
+
+  <div class="bar">
+    <div id="progress"></div>
+  </div>
+
+  <span id="duration">0:00</span>
+
+  <audio id="audio"
+    src="https://raw.githubusercontent.com/Moni0210/Boda/main/Ed%20Sheeran%20-%20Perfect%20(Official%20Music%20Video).mp3">
+  </audio>
+
+</div>
+
+<!-- SAVE THE DATE -->
+<div class="fecha-section">
+
+    <p class="save-date">¿CUÁTO FALTA?</p>
+    <!-- CONTADOR -->
+  <div class="countdown-circulos">
+    
+    <div class="tiempo">
+      <div class="circulo" id="dias">0</div>
+      <span>Días</span>
+    </div>
+
+    <div class="tiempo">
+      <div class="circulo" id="horas">0</div>
+      <span>Horas</span>
+    </div>
+
+    <div class="tiempo">
+      <div class="circulo" id="minutos">0</div>
+      <span>Min</span>
+    </div>
+
+    <div class="tiempo">
+      <div class="circulo" id="segundos">0</div>
+      <span>Seg</span>
+    </div>
+
+  </div>
+
+  <p class="save-date">RESERVA LA FECHA</p>
+
+  <div class="fecha-estilizada">
+
+    <!-- Mes sin cuadro -->
+    <div class="mes-texto">MAYO</div>
+
+    <!-- Fecha principal -->
+    <div class="fecha-flex">
+      <div class="cuadro-texto">SÁBADO</div>
+      <span class="dia-numero">16</span>
+      <div class="cuadro-texto">2026</div>
+    </div>
+
+    <!-- Hora sin cuadro -->
+    <div class="hora-texto">2:00 PM</div>
+
+    <!-- Frase estilizada -->
+    <p class="frase-estilizada">
+      Amar no es mirarse el uno al otro, sino mirar juntos en la misma dirección.
+    </p>
+
+  </div>
+
+  
+
+</div>
+
+<!-- DETALLES DEL EVENTO -->
+<div class="section fade-in">
+    <p class="save-date">DETALLES</p>
+  <div class="evento-columns">
+    <!-- CEREMONIA -->
+    <div class="evento">
+      <h3 class="titulo-evento">CEREMONIA</h3>
+      <div class="icono-circulo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40" height="40">
+          <style type="text/css">
+            .st0{fill:#bfa46f;}
+          </style>
+          <g>
+            <polygon class="st0" points="181.574,145.396 330.426,145.396 263.547,68.755 263.547,35.94 279.08,35.94 279.08,20.844 263.547,20.844 263.547,0 248.453,0 248.453,20.844 232.933,20.844 232.933,35.94 248.453,35.94 248.453,68.755"/>
+            <path class="st0" d="M330.426,283.158V161.24H181.574v121.918l-120.665,94.19l16.263,20.825l9.815-7.667V512h52.235h71.508h90.555h123.742v-13.443v-108.05l9.816,7.667l16.249-20.825L330.426,283.158z M170.167,471.909h-37.723v-43.865c0-10.412,8.449-18.862,18.862-18.862s18.862,8.449,18.862,18.862V471.909z M237.151,215.816c0-10.419,8.436-18.862,18.849-18.862c10.412,0,18.862,8.442,18.862,18.862v47.639h-37.711V215.816z M250.35,498.557h-39.62V372.4h39.62V498.557z M301.285,498.557h-39.62V372.4h39.62V498.557z M379.557,471.909h-37.711v-43.865c0-10.412,8.436-18.862,18.862-18.862c10.412,0,18.849,8.449,18.849,18.862V471.909z"/>
+            <rect x="234.936" y="431.804" class="st0" width="6.287" height="15.088"/>
+            <rect x="270.777" y="431.804" class="st0" width="6.287" height="15.088"/>
+          </g>
+        </svg>
+      </div>
+      <p>Nuestra Señora del Pilar</p>
+      <a href="https://www.google.com/maps/place/Parroquia+Nuestra+Señora+del+Pilar" class="boton-ubicacion" target="_blank">Ver ubicación</a>
+    </div>
+
+    <!-- SEPARADOR -->
+    
+
+    <!-- RECEPCIÓN -->
+    <div class="evento">
+      <h3 class="titulo-evento">RECEPCIÓN</h3>
+      <div class="icono-circulo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.714 202.714"  height="60">
+        <g>
+	<g>
+		<path style="fill:#351F10;" d="M110.078,134.551l-12.061-34.287l35.469,19.922l-39.285-43.46l-38.487,8.532l-8.992,31.25    L66.1,139.772l-6-22l-0.543-11.127l0.448,36.219l6.721-1.131l6.569,49.123l-10.414,9.24l18.162-0.424l1.221-11.49    c0,0,4.295-45.123,4.523-43.906c0.229,1.215,0.127,55.988,0.127,55.988l20.615-0.107l-13.547-13.052l11.363-51.884    L110.078,134.551z"/>
+		<polygon style="fill:#E2D4BF;" points="61.063,79.385 84.547,122.113 85.215,74.016   "/>
+		<g>
+			<path style="fill:#EABB98;" d="M101.619,51.352c-0.299-4.088-2.938-7.225-5.887-7.008c-1.189,0.088-2.244,0.712-3.064,1.686     c-5.342-5.533-15.785-7.873-26.751-5.291C54.154,43.513,45.453,51.094,43.94,59.039c-1.722-0.93-3.57-1.067-5.009-0.185     c-2.523,1.546-2.835,5.632-0.694,9.124c2.141,3.494,5.922,5.072,8.445,3.525c0.389-0.236,0.717-0.539,0.998-0.885     c5.426,5.318,15.695,7.525,26.457,4.988c10.902-2.569,19.17-9.264,21.533-16.553c0.373,0.083,0.758,0.116,1.146,0.088     C99.768,58.925,101.916,55.438,101.619,51.352z"/>
+			<g>
+				
+					<ellipse transform="matrix(0.9973 0.0731 -0.0731 0.9973 4.2811 -4.2885)" style="fill:#351F10;" cx="60.756" cy="56.371" rx="2.139" ry="2.319"/>
+				
+					<ellipse transform="matrix(0.9973 0.0731 -0.0731 0.9973 4.0784 -5.6125)" style="fill:#351F10;" cx="78.752" cy="52.938" rx="2.139" ry="2.318"/>
+			</g>
+			<path style="fill:#351F10;" d="M43.839,62.363c0,0,3.14-14.648,20.886-19.959c17.746-5.311,32.279,10.633,32.279,10.633     S96.416,25.496,63.123,19.21C63.123,19.21,29.345,40.225,43.839,62.363z"/>
+		</g>
+		<path style="fill:#665E5A;" d="M61.862,79.018l-9.143,7.049c0,0,14.418,30.492,31.332,35.707L61.862,79.018z"/>
+		<path style="fill:#665E5A;" d="M82.047,71.689l2.5,50.425c0,0,11.139-25.957,11.619-45.756L82.047,71.689z"/>
+		<polygon style="fill:#FFFFFF;" points="73.071,75.672 58.204,71.558 62.883,88.631 73.895,78.928 88.209,83.898 84.76,66.671       "/>
+		<g>
+			<polygon style="fill:#351F10;" points="98.601,31.958 30.52,42.341 29.555,35.745 97.636,25.362    "/>
+			
+				<rect x="43.468" y="2.526" transform="matrix(0.9895 -0.1446 0.1446 0.9895 -1.834 9.1441)" style="fill:#351F10;" width="37.082" height="29.333"/>
+			
+				<rect x="59.324" y="8.166" transform="matrix(-0.1445 -0.9895 0.9895 -0.1445 46.1359 93.2999)" style="fill:#665E5A;" width="8.148" height="37.082"/>
+		</g>
+	</g>
+	<g>
+		<path style="fill:#F7F2E8;" d="M102.946,38.924c0,0-27.932,7.889-28.417,60.705c0,0,49.763,12.344,83.28-13.574    c0,0-8.74-40.944-35.936-44.087L102.946,38.924z"/>
+		<path style="fill:#EABB98;" d="M123.299,81.932c4.641-1.639,8.455-4.205,10.902-7.287c1.596-0.126,3.457-1.971,4.496-4.631    c1.236-3.17,0.832-6.287-0.898-6.961c-0.398-0.156-0.836-0.162-1.283-0.051c-2.619-7.342-12.797-12.346-24.576-11.56    c-10.518,0.702-19.156,5.813-22.037,12.329c-0.613-0.428-1.264-0.617-1.889-0.481c-1.818,0.393-2.727,3.317-2.031,6.533    c0.695,3.215,2.732,5.504,4.551,5.111c0.101-0.023,0.201-0.056,0.299-0.094c2.543,3.879,7.373,6.824,13.322,8.189L90.1,134.772    l15.092-37.221l17.063-5.143l20.846,37.363L123.299,81.932z"/>
+		<path style="fill:#F9EDDC;" d="M109.289,116.01l-5.229-24.389c0,0,6.424-3.689,8.826-3.893c2.664-0.225,10.363,2.612,10.363,2.612    l-2.455,24.788L109.289,116.01z"/>
+		<path style="fill:#351F10;" d="M122.352,41.346c2.42-3.258,12.436-18.285-6.84-20.433c-19.326-2.153-13.811,15.398-12.68,18.532    c-21.276,3.719-15.154,26.559-15.154,26.559s15.992,0.31,23.266-14.496c0,0,6.105,15.152,25.369,14.969    C136.313,66.477,137.963,48.058,122.352,41.346z"/>
+		
+			<ellipse transform="matrix(0.9978 -0.0665 0.0665 0.9978 -4.1569 6.9456)" style="fill:#351F10;" cx="102.321" cy="65.956" rx="2.138" ry="2.319"/>
+		
+			<ellipse transform="matrix(0.9978 -0.0664 0.0664 0.9978 -4.1041 8.1514)" style="fill:#351F10;" cx="120.493" cy="65.776" rx="2.139" ry="2.319"/>
+		<path style="fill:#F9EDDC;" d="M123.512,40.734c1.09-0.81,4.416-3.916,2.4-5.285c-1.582-1.076-5.281,2.479-4.982,3.76    c-0.084-1.676-0.918-5.473-3.113-4.024c-1.547,1.018-0.518,5.382,0.602,6.626c-1.281-1.793-5.828-1.286-6.072,0.678    c-0.422,3.42,4.783,3.204,6.752,1.878c-1.271,1.719-3.164,4.55-1.074,5.835c0.205,0.125,2.211,0.006,2.451-0.145    c0.623-0.388,1.135-1.425,1.314-2.377c0.293,1.538,1.121,3.271,2.518,3.017c2.842-0.519,1.457-5.866,0.313-7.056    c1.49,1.189,4.102,0.841,4.375-0.998C129.459,39.498,125.366,39.273,123.512,40.734z"/>
+		<path style="fill:#FFF7E9;" d="M74.357,197.19c0,0,6.569-86.747,44.382-82.415c37.814,4.33,54.42,71.146,54.42,71.146    S136.975,214.393,74.357,197.19z"/>
+		<path style="fill:#F9EDDC;" d="M120.795,114.129l-11.506,0.881c0,0-33.189,17.762-32.189,63.762c0,0,39-5,42-46c0,0,19,35,49,32    C168.1,164.772,150.491,114.486,120.795,114.129z"/>
+	</g>
+</g>
+      </svg></div>
+      <p>Hacienda Pinares</p>
+      <a href="https://www.google.com/maps/place/Hacienda+Pinares" class="boton-ubicacion" target="_blank">Ver ubicación</a>
+    </div>
+  </div>
+
+  <!-- FRASE ROMÁNTICA -->
+  <p class="frase-evento">
+    Elegirnos fue lo más fácil, y volveríamos a hacerlo mil veces.
+  </p>
+</div>
+
+
+
+<!-- RSVP -->
+<div class="section fade-in">
+  <p class="save-date">CONFIRMAR ASISTENCIA</p>
+  <p>
+      Con gran ilusión, queremos invitarte a acompañarnos en uno de los días más felices de nuestras vidas.<br>
+      Nada nos haría más felices que celebrar este momento tan especial rodeados de las personas que forman <br>
+      parte de nuestra historia y de nuestro corazón.
+    </p>
+
+    <div class="section fade-in">
+  <div class="fecha-flex">
+      <span class="dia-numero">1</span>
+    </div>
+    <div class="hora-texto">INVITADO</div>
+
+<form id="formulario">
+  <input type="text" id="nombre" placeholder="INGRESE SU NOMBRE COMPLETO" required>
+
+  <!-- RADIO BUTTONS PARA CONFIRMAR ASISTENCIA -->
+  <div class="radio-vertical-centro">
+    <label>
+      <input type="radio" name="asistencia" value="sí" required>
+      <span class="radio-custom"></span>
+      ¡SÍ, CONFIRMO!
+    </label>
+    <label>
+      <input type="radio" name="asistencia" value="no">
+      <span class="radio-custom"></span>
+      "NO PUEDO :("
+    </label>
+  </div>
+
+  <button type="submit">Enviar</button>
+</form>
+</div>
+</div>
+<div class="section fade-in">
+  <p class="save-date">SOBRE NOSOTROS</p>
+  <p>
+      Hay instantes que el tiempo no puede borrar, momentos que nos recuerdan lo afortunados que somos <br>
+      de habernos encontrado. Con toda la ilusión, queremos compartir con ustedes esos recuerdos <br>
+      y celebrar el amor que hoy nos trae a este día tan especial.
+    </p>
+<div class="carousel-fade">
+
+  <div class="slide active">
+   
+    <img src="https://raw.githubusercontent.com/Moni0210/Boda/main/1.jpeg">
+  </div>
+
+  <div class="slide">
+    <img src="https://raw.githubusercontent.com/Moni0210/Boda/main/2.jpeg">
+  </div>
+
+  <div class="slide">
+    <img src="https://raw.githubusercontent.com/Moni0210/Boda/main/7.jpeg">
+  </div>
+  <div class="slide">
+    <img src="https://raw.githubusercontent.com/Moni0210/Boda/main/4.jpeg">
+  </div>
+  <div class="slide">
+    <img src="https://raw.githubusercontent.com/Moni0210/Boda/main/5.jpeg">
+  </div>
+  <div class="slide">
+    <img src="https://raw.githubusercontent.com/Moni0210/Boda/main/6.jpeg">
+  </div>
+
+  <!-- BOTONES -->
+  <button class="prev">❮</button>
+  <button class="next">❯</button>
+
+  <!-- INDICADORES -->
+  <div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+</div>
+</div>
+
+<div class="section fade-in">
+  <p class="save-date">REGALOS</p>
+  <p>
+    
+      Lo más importante para nosotros es que nos acompañes en nuestro día. <br>
+      Por si deseas aportar algo más que tu maravillosa presencia.<br>
+      El regalo es opcional, la asistencia obligatoria ;)
+    </p>
+
+    <button class="btn-regalo" onclick="abrirModal()">
+  DATOS
+</button>
+</div>
+
+<footer class="footer-boda">
+  
+
+  <p class="frase">
+    Hoy comienza el capítulo más bonito de nuestras vidas.
+  </p>
+
+  <p class="detalle">
+    Gracias por acompañarnos en este día tan especial.<br><br>
+  </p>
+  <h2 class="nombres">Valeria & Jorge</h2>
+</footer>
+
+<div id="modalRegalo" class="modal">
+
+  <div class="modal-contenido">
+    
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+
+    <h2>Sobre los regalos</h2>
+
+    <div class="caja-info">
+      <div style="text-align: center; line-height: 1.8;">
+  <p>
+    A continuación, compartimos los detalles para quienes deseen hacernos un regalo. 
+  </p>
+
+  <p><strong>Cuenta bancaria:</strong><br> CC: CR31010200009636715321</p>
+
+  <p><strong>Sinpe Móvil:</strong><br> 88610480</p>
+</div>
+    </div>
+
+  </div>
+
+</div>
+<script>
+document.getElementById("formulario").addEventListener("submit", function(e) {
+  e.preventDefault(); // evitar recargar la página
+
+  const nombre = encodeURIComponent(document.getElementById("nombre").value);
+
+  // Obtener el valor seleccionado del radio button
+  const asistenciaRadio = document.querySelector('input[name="asistencia"]:checked');
+  if (!asistenciaRadio) return alert("Selecciona sí o no");
+  const asistencia = asistenciaRadio.value;
+
+  // Números de WhatsApp en formato internacional sin +
+  const numeros = ["50688610480"]; // reemplaza con tus números
+
+  // Crear mensaje bonito según respuesta
+  let mensaje = "";
+  if (asistencia === "sí") {
+    mensaje = `¡Hola! Soy ${nombre} y con mucha alegría confirmo que asistiré a su boda.`;
+  } else {
+    mensaje = `Hola, soy ${nombre}. Lamento mucho no poder asistir a su boda. ¡Les deseo un día maravilloso!`;
+  }
+
+  // Abrir WhatsApp para cada número
+  numeros.forEach(num => {
+    window.open(`https://wa.me/${num}?text=${encodeURIComponent(mensaje)}`, "_blank");
+  });
+});
+</script>
+
+
+<script>
+// CONTADOR
+const countDownDate = new Date("May 16, 2026 14:00:00").getTime();
+
+setInterval(function() {
+  const now = new Date().getTime();
+  const distance = countDownDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("dias").innerHTML = days;
+  document.getElementById("horas").innerHTML = hours;
+  document.getElementById("minutos").innerHTML = minutes;
+  document.getElementById("segundos").innerHTML = seconds;
+
+}, 1000);
+
+// MÚSICA
+function playMusic() {
+  document.getElementById("music").play();
+}
+</script>
+
+<script>
+let index = 0;
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(i) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  slides[i].classList.add("active");
+  dots[i].classList.add("active");
+}
+
+document.querySelector(".next").addEventListener("click", () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+});
+
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    index = i;
+    showSlide(index);
+  });
+});
+
+// AUTO PLAY (opcional 💍)
+setInterval(() => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+}, 4000);
+</script>
+
+<script>
+const audio = document.getElementById("audio");
+const play = document.getElementById("play");
+const progress = document.getElementById("progress");
+const bar = document.querySelector(".bar");
+const current = document.getElementById("current");
+const duration = document.getElementById("duration");
+
+let playing = false;
+
+/* PLAY / PAUSE */
+play.addEventListener("click", () => {
+  if (playing) {
+    audio.pause();
+    play.innerHTML = "▶";
+  } else {
+    audio.play();
+    play.innerHTML = "❚❚";
+  }
+  playing = !playing;
+});
+
+/* TIEMPO */
+audio.addEventListener("timeupdate", () => {
+  const percent = (audio.currentTime / audio.duration) * 100;
+  progress.style.width = percent + "%";
+
+  /* tiempo actual */
+  let m = Math.floor(audio.currentTime / 60);
+  let s = Math.floor(audio.currentTime % 60);
+  if (s < 10) s = "0" + s;
+  current.textContent = m + ":" + s;
+});
+
+/* DURACIÓN */
+audio.addEventListener("loadedmetadata", () => {
+  let m = Math.floor(audio.duration / 60);
+  let s = Math.floor(audio.duration % 60);
+  if (s < 10) s = "0" + s;
+  duration.textContent = m + ":" + s;
+});
+
+/* CLICK EN BARRA */
+bar.addEventListener("click", (e) => {
+  const width = bar.clientWidth;
+  const clickX = e.offsetX;
+  audio.currentTime = (clickX / width) * audio.duration;
+});
+</script>
+
+<script>
+function abrirModal() {
+  document.getElementById("modalRegalo").style.display = "block";
+}
+
+function cerrarModal() {
+  document.getElementById("modalRegalo").style.display = "none";
+}
+
+/* Cerrar si da clic afuera */
+window.onclick = function(event) {
+  const modal = document.getElementById("modalRegalo");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
